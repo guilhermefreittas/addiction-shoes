@@ -20,7 +20,7 @@ public class ClienteController {
 	public String litarCliente(Model model) {
 	
 		model.addAttribute("listaDeClientes",listaDeClientes);
-		return "clientes";
+		return "control";
 	}
 	
 	@GetMapping("/novo-cliente")
@@ -28,7 +28,7 @@ public class ClienteController {
 		
 		model.addAttribute("cliente",cliente);
 		
-		return "novo-cliente";
+		return "cad";
 		
 	}
 	

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>cadastro</title>
+        <link rel="stylesheet" href="/style.css">
+        
+        </head>
+<body>
+    <section >
+       <!--Inícia Formulário-->
+
+       <div class="container_form">
+            
+        <h1>Suas informações</h1>
+
+        <form class="form" action="#" th:object="${cliente}"method="post">
+            
+            <div class="form_grupo">
+                <label for="nome" class="form_label">Nome</label>
+                <input type="text" th:field="*{nome}"class="form_input" id="nome" placeholder="Nome completo" required>
+            </div>
+            
+            <div class="form_grupo">
+                <label for="e-mail" class="form_label">Email</label>
+                <input type="email" th:field="*{email}" class="form_input" id="email" placeholder="seuemail@email.com" required>
+            </div>
+            
+            <div class="form_grupo">
+                <label for="Telefone" class="form_label">Telefone</label>
+                <input type="tel" maxlength="11" th:field="*{telefone}" class="form_input" id="telefone" placeholder="11923456784" required>
+            </div>        
+            <div class="form_grupo">
+                <label for="cpf" class="form_label">CPF</label>
+                <input type="text" maxlength="14" th:field="*{cpf}"class="form_input" id="cpf" placeholder="111.222.333-44" required>
+            </div>
+            <div class="form_grupo">
+                <label for="Senha" class="form_label">Senha</label>
+                <input type="password" maxlength="12"th:field="*{senha}" class="form_input" id="senha" placeholder="************" required>
+            </div>
+            <div class="form_grupo">
+
+                <span class="legenda">Sexo:</span>
+                
+                <div class="radio-btn">
+                    <input type="radio" class="form_new_input" id="masculino"  th:field="*{sexo}" value="Masculino">
+                    <label for="masculino" class="radio_label form_label"> <span class="radio_new_btn"></span> Masculino</label>
+                </div>
+
+                <div class="radio-btn">
+                    <input type="radio" class="form_new_input" id="feminino" th:field="*{sexo}" value="Feminino">
+                    <label for="feminino" class="radio_label form_label"> <span class="radio_new_btn"></span> Feminino</label>
+                </div>
+                <div class="radio-btn">
+                    <input type="radio" class="form_new_input" id="outro"th:field="*{sexo}" value="outro">
+                    <label for="outro" class="radio_label form_label"> <span class="radio_new_btn"></span>Outro</label>
+                </div>
+                <div class="radio-btn">
+                    <input type="radio" class="form_new_input" id="naodizer" th:field="*{sexo}" value="naodizer">
+                    <label for="naodizer" class="radio_label form_label"> <span class="radio_new_btn"></span>Prefiro não informar</label>
+                </div>
+            </div>
+          
+
+            <div class="form_grupo">
+
+                
+                <div class="submit">
+
+                  <input type="hidden" name="acao" value="enviar">
+                  <button type="submit" name="Submit" class="submit_btn" >Cadastrar</button>
+                
+                       <a href="control.html" >Visualizar</a>
+                </div>
+        </form>
+
+</div>
+</body>
+</html>

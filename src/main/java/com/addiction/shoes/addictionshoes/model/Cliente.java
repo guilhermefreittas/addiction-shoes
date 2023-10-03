@@ -19,7 +19,9 @@ public class Cliente {
 	private String senha;
 	private String telefone;
 	private String cpf;
+	private String sexo;
 	private boolean codStatus;
+	
 	
 	
 	//Getters and Setters
@@ -66,5 +68,15 @@ public class Cliente {
 	public void setCodStatus(boolean codStatus) {
 		this.codStatus = codStatus;
 	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+	
+	
+	
+	
 	
 }
