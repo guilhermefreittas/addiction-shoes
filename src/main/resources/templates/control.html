@@ -26,11 +26,12 @@
                         </thead>
 
                         <tbody>
-                            <tr th:each="produto : ${listaDeProdutos}">
-                                <td th:text="${usuario.nome}"></td>
-                                <td th:text="${usuario.email}"></td>
-                                <td th:text="${usuario.dataDeNasci}"></td>
-                                <td th:text="${usuario.senha}"></td>
+                            <tr th:each="cliente : ${listaDeClientes}">
+                                <td th:text="${cliente.nome}"></td>
+                                <td th:text="${cliente.email}"></td>
+                                <td th:text="${cliente.}"></td>
+                                <td th:text="${cliente.cpf}"></td>
+                                <td th:text="${cliente.senha}"></td>
                             </tr>
                         </tbody>
                     </table>

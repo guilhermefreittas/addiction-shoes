@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +7,7 @@
         <title>cadastro</title>
         <link rel="stylesheet" href="/style.css">
         
-        </head>
+    </head>
 <body>
     <section >
        <!--Inícia Formulário-->
@@ -18,7 +16,7 @@
             
         <h1>Suas informações</h1>
 
-        <form class="form" action="#" th:object="${cliente}"method="post">
+        <form  th:action="@{/}" th:object="${cliente}"method="post">
             
             <div class="form_grupo">
                 <label for="nome" class="form_label">Nome</label>
@@ -43,7 +41,7 @@
                 <input type="password" maxlength="12"th:field="*{senha}" class="form_input" id="senha" placeholder="************" required>
             </div>
             <div class="form_grupo">
-
+            <!--Eliminar Sexo-->
                 <span class="legenda">Sexo:</span>
                 
                 <div class="radio-btn">

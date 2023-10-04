@@ -1,8 +1,8 @@
 package com.addiction.shoes.addictionshoes.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,34 +10,43 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.addiction.shoes.addictionshoes.model.Cliente;
+import com.addiction.shoes.addictionshoes.repository.ClienteRepository;
+
+
 @Controller
-@RequestMapping("/addictionshoes/cliente")
+@RequestMapping("/addiction-shoes/cliente")
 public class ClienteController {
 	
-	List<Cliente> listaDeClientes = new ArrayList<Cliente>();
+	@Autowired //Injeção de dependência
+	private ClienteRepository clienteRepository;
 	
-	@GetMapping("/listar")
-	public String litarCliente(Model model) {
 	
-		model.addAttribute("listaDeClientes",listaDeClientes);
-		return "control";
-	}
 	
+	//Carregar o formulario de cadastro
 	@GetMapping("/novo-cliente")
 	public String novoCliente(Cliente cliente, Model model) {
 		
 		model.addAttribute("cliente",cliente);
 		
-		return "cad";
+		return "addiction-shoes/cad";
 		
 	}
 	
+	
+	
 	@PostMapping("/add-cliente")
-	public String gravarNovoCliente(Cliente cliente) {
+	public String addCliente(Cliente cliente, Model model){
 		
-		listaDeClientes.add(cliente);
+		cliente.setCodStatus(true);
 		
-		return "redirect:/addictionshoes/cliente/listar";
+		Cliente clienteDB = clienteRepository.save(cliente);
 		
+		return "redirect:/addiction-shoes/cliente/home";
+	}
+	
+	@GetMapping("/home")
+	public String showPageHome() {
+		
+		return "/addiction-shoes/";
 	}
 }
