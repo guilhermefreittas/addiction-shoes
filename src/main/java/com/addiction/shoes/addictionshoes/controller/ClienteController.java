@@ -23,17 +23,18 @@ public class ClienteController {
 	@Autowired //Injeção de dependência
 	private ClienteRepository clienteRepository;
 	
-	
-	
-	
-	//visualizar clientes
-	/*@GetMapping("/todos-clientes")
-	public String listarCliente(Model model) {
-		
-		model.addAttribute("cliente", clienteRepository.findAll());
-		return "cad";
+	public ClienteController(ClienteRepository clienteRepository) {
+		this.clienteRepository = clienteRepository;
 	}
-	*/
+	//visualizar clientes
+	@GetMapping("/todos-cliente")
+	public String listarCliente(Model model) {
+		List<Cliente> listadeCliente = new ArrayList<Cliente>();
+		listadeCliente = clienteRepository.findAll();
+		model.addAttribute("listadeCliente", listadeCliente );
+		return "control";
+	}
+	
 	
 	//Carregar o formulario de cadastro
 	@GetMapping("/novo-cliente")
@@ -48,17 +49,14 @@ public class ClienteController {
 	@PostMapping("/add-cliente")
 	public String addCliente(Cliente cliente, BindingResult result, Model model){
 		if(result.hasErrors()) {
-			return "addiction-shoes/cad";
+			return "cad";
 		}
-		Cliente clienteDB = clienteRepository.save(cliente);
+		
 		cliente.setCodStatus(true);
-		return "redirect:/addiction-shoes/cliente/todos-clientes";
+		Cliente clienteDB = clienteRepository.save(cliente);
+		return "redirect:/addiction-shoes/cliente/todos-cliente";
 	}
 	
-	@GetMapping("/todos-clientes")
-	public List<Cliente> listarCliente(){
-		return clienteRepository.findAll();
-		
-	}
+	
 	
 }
